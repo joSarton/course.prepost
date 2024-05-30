@@ -1,0 +1,25 @@
+name: course-project-dash
+title: Template Project
+version: ~
+start_page: index.adoc
+asciidoc:
+  attributes:
+    project_name: Course Project Dash
+    numbered: true
+    allow-uri-read: true
+    hide-uri-scheme: true
+    feelpp: Feel++
+    stem: latexmath
+    python: Python
+    cpp: C++
+ext:
+  collector:
+    - run:
+        command: ./generate-jupyter.sh docs/modules/ROOT
+      scan:
+        dir: jupyter/
+        files: '**/*.ipynb'
+        base: modules/ROOT/attachments/
+nav:
+- modules/ROOT/nav.adoc
+
