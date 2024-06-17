@@ -18,6 +18,8 @@ This repository provides a basic starting point for a {feelpp} application inclu
 
 The documentation for course-project-dash is available at link:https://feelpp.github.io/course-project-dash[here] and you can build on it for your project by enabling the link:https://docs.github.com/en/pages[github pages] for your repository.
 
+== Setting up CI/CD
+
 == Renaming the project
 
 By default the project is named  `course-project-dash` if you cloned the repository `feelpp/course-project-dash`.
