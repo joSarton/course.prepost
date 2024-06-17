@@ -72,7 +72,7 @@ jobs:
         lfs: true
         submodules: 'recursive'
     - name: Download 
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         # Artifact name
         name: course-project-dash-artifacts
