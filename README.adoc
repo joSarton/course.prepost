@@ -20,6 +20,9 @@ The documentation for course-project-dash is available at link:https://feelpp.gi
 
 == Setting up CI/CD
 
+ - create an empty .nojekyll in gh-pages
+ - in repository settings, add secrets attached to the repository
+
 == Renaming the project
 
 By default the project is named  `course-project-dash` if you cloned the repository `feelpp/course-project-dash`.
