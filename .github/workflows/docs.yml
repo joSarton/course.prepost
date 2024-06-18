@@ -38,6 +38,7 @@ jobs:
           pip install -r requirements.txt        
     - name: Build Antora Site
       run: |
+          touch .nojekyll
           source .venv/bin/activate
           npm run antora
     - name: Deploy
