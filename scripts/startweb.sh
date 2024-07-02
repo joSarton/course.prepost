@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set -x
+set -x
 
 usage(){
    echo ""
@@ -38,7 +38,7 @@ shift $((OPTIND - 1))
 
 if [ "${TERM_PROGRAM}" = "vscode" ]; then
    echo "**** VScode detected: overwrite main directories definition ****"
-   SRCDIR=/workspaces/CSMI-PrePosts
+   SRCDIR=/workspaces/CSMI-PrePost
 fi
 
 # check if SRCDIR  exists
@@ -62,19 +62,19 @@ sudo apt install nodejs
 node -v
 
 
-sudo npm install
+sudo npm install $SRCDIR/packages.json
 
 # Install Python dependencies
 python -m venv --system-site-packages .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r $SRCDIR/requirements.txt
 
 # install live-server
 sudo npm i -g live-server
 
 # do it in docs
 cd ${SRCDIR}/docs
-npx antora --stacktrace generate --cache-dir cache --redirect-facility disabled --clean site-dev.yml > ../Antora.log 2>&1
+npx antora --stacktrace generate --cache-dir cache --redirect-facility disabled --clean $SRCDIR/site-dev.yml > ../Antora.log 2>&1
 
 # get VERSION from main mqs CMakeLists.txt
 VERSION="0.1.0"
@@ -98,7 +98,8 @@ WEBPID=$(pgrep /usr/local/bin/live-server)
    
 echo "To view the docs; run Firefox in private mode and load localhost:8080/mqs/${VERSION}"
 echo "If you make change to the docs, do not forget to rerun:"
-echo "antora --stacktrace generate --cache-dir cache --redirect-facility disabled --clean site-dev.yml > ../Antora.log 2>&1"
+echo "SRCDIR=$SRCDIR"
+echo "antora --stacktrace generate --cache-dir cache --redirect-facility disabled --clean $SRCDIR/site-dev.yml > ../Antora.log 2>&1"
 echo "Check ../Antora.log for ERRORS and WARNINGS"
 echo "To stop the server: kill $WEBPID"
 echo "************************************************************"
