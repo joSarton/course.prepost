@@ -4,11 +4,11 @@ guard :shell do
         time = Time.new
         timestring = time.strftime("%H:%M:%S")
         puts "#{timestring} - INFO - Got change for: #{a[0]}"
-        `antora --cache-dir=/preview/public/.cache/antora /preview/playbook.yml`
+        `npx antora --cache-dir=/workspaces/CSMI-PrePost/public/.cache/antora /workspaces/CSMI-PrePost/site-dev.yml`
     end
 end
 
-# Refresh browser when folder with HTML files changes
-guard :livereload do
-    watch(/(.*).html/)
-end
+# # Refresh browser when folder with HTML files changes
+# guard :livereload do
+#     watch(/(.*).html/)
+# end

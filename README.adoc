@@ -29,7 +29,8 @@ The documentation for csmi-prepost is available at link:https://trophime.github.
 
  - open the project in `vscode`
  - stats the devcontainer
- - run `scripts/startweb.sh`
+ - run `./antora-preview.sh`
+ - start Vscode Liveserver extension 
  
 == Updating the {project} version
 
