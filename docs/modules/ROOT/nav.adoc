@@ -1,6 +1,10 @@
 * xref:index.adoc[Introduction]
 * xref:quickstart.adoc[]
 * xref:overview.adoc[]
+* xref:tp2.adoc[TP2dgd]
+* xref:tp3.adoc[]
+* xref:tp4.adoc[]
+* xref:tp5.adoc[]
 * Setting up the development Environment
 ** xref:env/cmake.adoc[]
 ** xref:env/antora.adoc[]

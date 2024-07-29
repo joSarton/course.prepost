@@ -27,7 +27,7 @@ ARG USER_UID=1001
 ARG USER_GID=$USER_UID
 
 RUN apt update && \
-    apt -y install curl findutils jq yq coreutils bash-completion
+    apt -y install curl findutils jq yq coreutils bash-completion locate nmap vim-nox
 
 # Install stuff for antora preview
 # test without caddy deb and guard-livereload gem
@@ -37,6 +37,8 @@ RUN apt update && \
     apt -y remove ruby-dev && \
     updatedb
 
+# Install python stuff
+RUN apt -y install python-is-python3 python3-venv python3-watchdog
 
 # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.\
 RUN groupadd --gid $USER_GID $USERNAME && \

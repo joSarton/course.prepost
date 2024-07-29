@@ -27,10 +27,11 @@ The documentation for csmi-prepost is available at link:https://trophime.github.
 
 == Developing docs
 
- - open the project in `vscode`
- - stats the devcontainer
- - run `./antora-preview.sh`
- - start Vscode Liveserver extension 
+ - open the project in `vscode`,
+ - stats the devcontainer,
+ - run `./antora-preview.sh`,
+ - start Vscode Liveserver extension, this will create a port 5500 in the container, 
+ - on the host, run: `firefox --private-window http://localhost:5500/''
  
 == Updating the {project} version
 

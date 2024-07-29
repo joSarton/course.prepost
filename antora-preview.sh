@@ -66,4 +66,4 @@ echo ""
 # sudo caddy start
 # signalListener .. # from antora-preview but this seems buggy
 guard -p --no-interactions -w docs public
-
+# watchmedo auto-restart -d ./docs/ -p '*.adoc' --recursive `./antora-run.sh`

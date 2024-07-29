@@ -25,3 +25,6 @@ output:
   - provider: fs
     path: /workspaces/CSMI-PrePost/public/serve
     clean: true
+runtime:
+  log:
+    level: info
