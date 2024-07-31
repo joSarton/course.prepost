@@ -1,52 +1,21 @@
 #!/bin/bash
 set +x
 
-usage() {
-    echo ""
-    echo "Antora Documentation Previewer"
-    echo ""
-    echo "This command builds an Antora documentation website locally and launches a web server on port 2020 to browse the documentation."
-    echo ""
-    echo "Arguments:"
-    echo ""
-    echo "    -d=PATH / --dir=PATH:"
-    echo "           Path to the antora docs basedir."
-    echo "           Default: '/preview'"
-    echo ""
-    echo "    --style=STYLE / -s=STYLE:"
-    echo "           Antora UI Bundle to use to render the documentation."
-    echo "           Valid values: 'feelpp', 'vshn', 'appuio', 'syn', 'k8up', 'antora'."
-    echo "           Default value: 'feelpp'"
-    echo ""
-    echo "    -a=PATH / --antora=PATH:"
-    echo "           Path to the subfolder."
-    echo "           Default: 'docs'"
-    echo ""
-    echo "Examples:"
-    echo "    antora-preview --dir=/preview --style=appuio --antora=src"
-    echo ""
-    echo "GitHub project: https://github.com/vshn/antora-preview"
-    echo ""
-    exit 0
-}
+# install feelpp stuff
+sudo apt-get install wget gpg
+# wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+wget -qO - http://apt.feelpp.org/apt.gpg | cat > feelpp.gpg
+sudo install -D -o root -g root -m 644  feelpp.gpg /etc/apt/keyrings/feelpp.gpg
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/feelpp.gpg] http://apt.feelpp.org/debian/bookworm bookworm latest" | sudo tee -a /etc/apt/sources.list.d/feelpp.list
+rm -f feelpp.gpg
+sudo apt -qq update
+# sudo apt install -y
 
-# A wrapper to run subprocesses in the background but forward SIGTERM/SIGINT to them
-# Adapted from https://medium.com/@manish_demblani/docker-container-uncaught-kill-signal-d5ed22698293
-signalListener() {
-    "$@" &
-    pid="$!"
-    trap "caddy stop; echo 'Stopping PID $pid'; kill -SIGTERM $pid" SIGINT SIGTERM
-
-    # A signal emitted while waiting will make the wait command return code > 128
-    # Let's wrap it in a loop that doesn't end before the process is indeed stopped
-    while kill -0 $pid > /dev/null 2>&1; do
-	# Only wait for the specific child pid we extracted in this function,
-	# as otherwise we wait forever for the ruby subprocess started by
-	# `guard` which is apparently not properly terminated when sending
-	# `SIGTERM` to `guard`.
-        wait $pid
-    done
-}
+# install python stuff
+sudo apt install -y python-is-python3 python3-venv 
+python3 -m venv --system-site-packages .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
 
 # install
 # sudo chown -R vscode:vscode . # in wsl remote container
