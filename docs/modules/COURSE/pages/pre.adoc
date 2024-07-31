@@ -1,0 +1,15 @@
+= PreProcessing
+
+Covers:
+* Creating/Loading a solid model of the geometry,
+* Generating a mesh
+
+add diagram for the classical pipeline, use kroki/mermaid 
+
+[note]
+====
+These operations may be difficult and time-consuming (up to several months to get a descent mesh).
+Moreover, CAD and meshing may also require a lot of CPU time and memory ressources.
+====
+
+The pipeline, eventually, need to be updated from the calculation if the problem is transient and/or the geometry is deformed.

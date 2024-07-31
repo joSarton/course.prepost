@@ -1,0 +1,45 @@
+= {salome} Environment
+
+Salome is an opensource platform for the simulation.
+It covers all steps of the scientific pipeline. Salome provides modules for:
+
+* pre-processsing: 
+** CAD: GEOM, SHAPER
+** Mesh: SMESH with additionnal plugins for {gmsh}
+* simulation: 
+** provide mcan run some solvers,
+* post-processing: 
+** View: PARAVIS with openturns support for statistical analyse of the results
+
+This list is not exhaustive. The reader can refer to {salome} documentation for more detail.
+
+== Get {salome}
+
+The easiest way to use {salome} is to use a docker image.
+
+However, for this course, we will install salome on the TP desktops.
+To proceed:
+
+* Download version 9.11.0 for Debian 11  from https://www.salome-platform.org/?page_id=2430[{salome} website]
+* Open a terminal and run:
+
+[source,shell]
+----
+ $ tar zxf SALOME-9.11.0.tar.gz
+ $cd SALOME-9.11.0
+----
+
+To validate the installation, try to launch salome:
+
+[source,shell]
+----
+./[mesa-]salome
+----
+
+Run this command from the directory where you have unarchived the binary tarball.
+
+= References
+----
+
+* https://www.salome-platform.org/[Official {salome} website]{
+* Tutorial on https://www.youtube.com/@SALOMEPlatformOfficial/videos[{salome} youtube]channel 

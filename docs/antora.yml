@@ -1,25 +1,41 @@
-name: course-project-dash
-title: Template Project
+name: course-prepost
+title: PrePost Processing for Scientific Computing
 version: ~
 start_page: index.adoc
 asciidoc:
   attributes:
-    project_name: Course Project Dash
+    project_name: Course PrePost Processing
     numbered: true
     allow-uri-read: true
     hide-uri-scheme: true
     feelpp: Feel++
+    gmsh: Gmsh
+    mmg: MmgTools
+    meshgems: MeshGems
+    salome: Salome
+    freecad: FreeCad
+    openscad: OpenScad
+    cgal: CGal
+    paraview: Paraview
+    vtk: VTK
     stem: latexmath
     python: Python
     cpp: C++
 ext:
   collector:
     - run:
-        command: ./generate-jupyter.sh docs/modules/ROOT
+        command: ./generate-jupyter.sh docs/modules/COURSE
       scan:
         dir: jupyter/
         files: '**/*.ipynb'
-        base: modules/ROOT/attachments/
+        base: modules/COURSE/attachments/
+    - run:
+        command: ./generate-jupyter.sh docs/modules/exos
+      scan:
+        dir: jupyter/
+        files: '**/*.ipynb'
+        base: modules/exos/attachments/
 nav:
-- modules/ROOT/nav.adoc
+- modules/COURSE/nav.adoc
+- modules/exos/nav.adoc
 

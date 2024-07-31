@@ -1,0 +1,40 @@
+= Gmsh Environment
+
+Gmsh is an open source 3D finite element mesh generator with a built-in CAD engine and post-processor.
+We use it to generate the geometry and mesh in {feelpp}.
+
+For this course, we use in addition Gmsh Python API to automatically create CAD and mesh.
+To install the Python bindings, you can use the python3-gmsh package from your distribution.
+
+[source,shell]
+----
+ $ [sudo] apt update # <1>
+ $ [sudo] apt install python3-gmsh #
+----
+
+However, we recommend to use a virtual python env to install a more recent version of {gmsh}:
+
+[source,shell]
+----
+ $ $ python3 -m venv [--system-site-packages] gmsh-env # <1>
+ $ source ./gmsh-env/bin/activate #
+ $ python3 -m pip install gmsh #
+----
+
+[NOTE]
+====
+On Windows:
+[source,shell]
+----
+c:\>C:\Python35\python -m venv c:\path\to\gmsh-env
+C:\> C:\path\to\gmsh-env\Scripts\activate.bat
+c:\>C:\Python35\python -m pip install gmsh
+====
+
+
+= References
+----
+
+* https://gmsh.info/#Documentation[Official {gmsh} documentation]
+* Python API: https://gmsh.info/doc/texinfo/gmsh.html#Gmsh-application-programming-interface[documentation] and https://gitlab.onelab.info/gmsh/gmsh/-/tree/master/tutorials?ref_type=heads[examples]
+* https://bthierry.pages.math.cnrs.fr/tutorial/gmsh/[A Tutorial] from B. Thierry 

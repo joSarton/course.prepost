@@ -1,0 +1,7 @@
+* xref:index.adoc[Exercices]
+** xref:gmsh/simple.adoc[Gmsh ]
+** xref:gmsh/occ.adoc[Gmsh with OpenCascade]
+** xref:gmsh/mesh.adoc[Gmsh - first meshes]
+** xref:gmsh/adapt.adoc[Gmsh - adapt meshes]
+** xref:salome/simple.adoc[Salome CAD Modeler]
+** xref:salome/mesh.adoc[Salome Netgen Mesher]

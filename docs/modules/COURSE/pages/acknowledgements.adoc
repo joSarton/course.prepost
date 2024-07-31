@@ -1,0 +1,7 @@
+= Acknowledgements
+
+We would like to thanks the following persons that, courtesy, provided the permissions to use materials for this course:
+
+* Feelpp team: benchnarks used as case studies, 
+* F. Ledoux: slides on Meshing algorithms,
+* B. Thierry: Gmsh Tutorial.

@@ -1,0 +1,25 @@
+= Computer Aided Design
+
+* Covers the creation of geometry.
+* 2 approaches to create geometry:
+** Bottom-up approach:
+** Constructive Solid Geometry (CGS) approach:
+
+* Use of dedicated software
+* Main formats considered
+
+== Goals
+
+* what we will learn?
+* practise with {gmsh} and {salome}
+
+== Bottom-up approach
+
+* academic cube
+* academic cube with holes
+
+== CGS approach
+
+* previous examples using CSG
+
+== Loading/Repearing/Defeaturing CAD
