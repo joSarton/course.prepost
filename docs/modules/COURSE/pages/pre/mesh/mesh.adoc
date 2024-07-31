@@ -1,1 +1,43 @@
-== Preprocessing Mesh
+= Preprocessing Mesh
+
+Covers Mesh Generation
+
+== Goals
+
+== Definitions
+
+mesh def
+conformal/non-conformal
+structured/Unstructured
+Hybrid
+Mixte
+
+== Main Algorithms 
+
+=== Structure Mesh
+=== UnStructured Mesh
+
+slides from F. Ledoux
+
+=== Quad/Hexa Mesh
+
+slides from F. Ledoux
+
+=== Polyhedra Mesh
+
+notes on Voronoi
+
+== Adaptation
+== Moving Mesh
+
+== Practice
+=== Software
+=== Formats
+=== Loading/Repearing/Defeaturing CAD
+=== Structured Meshes with Gmsh
+=== UnStructured ..............
+
+== References
+
+softwares
+books

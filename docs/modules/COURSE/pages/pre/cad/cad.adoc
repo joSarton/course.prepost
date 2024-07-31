@@ -22,4 +22,6 @@
 
 * previous examples using CSG
 
-== Loading/Repearing/Defeaturing CAD
+== Practice
+=== Sofware
+=== Formats
