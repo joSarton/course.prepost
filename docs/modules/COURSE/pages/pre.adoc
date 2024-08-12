@@ -13,3 +13,6 @@ Moreover, CAD and meshing may also require a lot of CPU time and memory ressourc
 ====
 
 The pipeline, eventually, need to be updated from the calculation if the problem is transient and/or the geometry is deformed.
+
+Quick reminder on FEM
+Need for identifying volume or surface and boundary

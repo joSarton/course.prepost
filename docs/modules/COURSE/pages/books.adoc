@@ -1,0 +1,4 @@
+= books
+
+* Mesh Generation: Application to Finite Elements, Frey & George, 2008
+* The Visualization Handbook, Johnson & Hansen, 2004

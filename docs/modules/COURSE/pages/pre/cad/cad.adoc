@@ -1,27 +1,120 @@
-= Computer Aided Design
+= Computer Aided Design (CAD)
 
-* Covers the creation of geometry.
+Covers the creation of geometry:
 * 2 approaches to create geometry:
-** Bottom-up approach:
-** Constructive Solid Geometry (CGS) approach:
+** Bottom-up approach: from points to surfaces and volumes,
+
+// https://youtu.be/nkuawZkiu1w
+** Constructive Solid Geometry (CGS) approach: use boolean operation,
+// https://youtu.be/dywdlaaE1U8
+
+Examples are take from https://gmsh.info/screencasts/[{gmsh} screencasts.] 
 
 * Use of dedicated software
 * Main formats considered
 
 == Goals
 
-* what we will learn?
-* practise with {gmsh} and {salome}
+* What we will learn?
+** create geometry
+** automate creation
+** define tags or ids to "identify" volumes/surfaces and "boundaries"
+* Practise with {gmsh} and {salome}
+** use GUI and TUI/API mode
+
 
 == Bottom-up approach
 
-* academic cube
-* academic cube with holes
+Use of {gmsh} with builtin kernel
+
+* Basic Usage: a square
+
+[source]
+----
+h = 1;                     
+Point(1) = {0, 0, 0, h};   
+Point(2) = {10, 0, 0, h};
+Point(3) = {10, 10, 0, h};
+Point(4) = {0, 10, 0, h};
+Line(1) = {1,2};            
+Line(2) = {2,3};
+Line(3) = {3,4};
+Line(4) = {4,1};
+Curve Loop(1) = {1,2,3,4};   
+Plane Surface(1) = {1};     
+Physical Surface(1) = {1}; 
+----
+<1> Characteristic length of a mesh element
+<2> Point construction
+<3> Lines
+<4> A Boundary
+<5> A Surface
+<6> Setting a label to the Surface
+
+* In GMSH, go to files->open (CTRL+o) and open the file, or type gmsh square.geo in a terminal (warning: this open a new instance of GMSH (which is very light by the way!)). A square should have appear in GMSH’s windows. 
+
+* The camera can be adjusted using the mouse: rotating (left click), translating (right click) or zooming (wheel). At bottom left of GMSH’s windows, camera can be reseted using X,Y,Z and 1:1 (scale) buttons.
+
+[note]
+====
+The square can now be meshed by typing 2 on the keyboard (or maybe shift + 2) or using the menu: Mesh->2D
+====
+
+* add parameters for GUI mode
+
+* "academic" cube
+
+Perform an elevation to get a cube.
+Note the way, we use to retreive the boundaries and the volume create
+
+* "academic" cube with hole
+
+[source]
+----
+h = 1;                     
+Point(1) = {0, 0, 0, h};   
+Point(2) = {10, 0, 0, h};
+Point(3) = {10, 10, 0, h};
+Point(4) = {0, 10, 0, h};
+Line(1) = {1,2};            
+Line(2) = {2,3};
+Line(3) = {3,4};
+Line(4) = {4,1};
+Curve Loop(1) = {1,2,3,4};
+
+Point(5) = {3, 0, 0, h/4.};   <1>
+Point(6) = {0, 3, 0, h/4.};
+Point(7) = {-3, 0, 0, h/4.};
+Point(8) = {0, -3, 0, h/4.};
+Circle() = {};
+Curve Loop(2) = {}; <2>
+
+Plane Surface(1) = {1, -2}; <3> 
+...
+----
+<1> Create a disk
+<2> Create a Curve Loop for the hole
+<3> Create the surface: square with a hole
+
+Perform the elevation
+Assign the Physical ids
+
+* "academic" cube with holes
+
+
+Create a function to define the hole
+
+* use of python Gmsh API
+
+=== Exercises
 
 == CGS approach
 
+Use of {gmsh} with OpenCascade kernel
+
 * previous examples using CSG
 
-== Practice
+=== Exercises
+
 === Sofware
 === Formats

@@ -15,9 +15,14 @@ This list is not exhaustive. The reader can refer to {salome} documentation for 
 
 == Get {salome}
 
-The easiest way to use {salome} is to use a docker image.
+The easiest way to use {salome} is to use a docker image:
 
-However, for this course, we will install salome on the TP desktops.
+[source,shell]
+----
+ $ docker pull trophime/salome:9.11.0-debian11
+----
+
+However, for this course, we will install salome on the TP linux desktops.
 To proceed:
 
 * Download version 9.11.0 for Debian 11  from https://www.salome-platform.org/?page_id=2430[{salome} website]
@@ -38,8 +43,13 @@ To validate the installation, try to launch salome:
 
 Run this command from the directory where you have unarchived the binary tarball.
 
-= References
-----
+[Note]
+====
+There are officials binaries for Windows on https://www.salome-platform.org/?page_id=2430[{salome} website].
+There is no port for Mac OS X.
+====
+
+== References
 
 * https://www.salome-platform.org/[Official {salome} website]{
 * Tutorial on https://www.youtube.com/@SALOMEPlatformOfficial/videos[{salome} youtube]channel 

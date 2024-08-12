@@ -9,6 +9,8 @@
 * Setting up the development Environment
 ** xref:env/antora.adoc[]
 ** xref:env/vscode.adoc[]
+** xref:env/gmsh.adoc[{gmsh}]
+** xref:env/salome.adoc[{salome}]
 ** xref:env/feelpp.adoc[{feelpp}]
 ** xref:env/container.adoc[Containers]
 ** xref:env/jupyter.adoc[Jupyter Notebook]
