@@ -17,6 +17,9 @@ python3 -m venv --system-site-packages .venv
 source .venv/bin/activate
 pip3 install -r requirements.txt
 
+# install utilities tools
+sudo apt install -y pandoc
+
 # install
 # sudo chown -R vscode:vscode . # in wsl remote container
 npm install

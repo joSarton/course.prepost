@@ -1,4 +1,4 @@
 {
-    "asciidoc.antora.enableAntoraSupport": true,
-    "liveServer.settings.root": "/public/serve"
+    "liveServer.settings.root": "/public/serve",
+    "asciidoc.antora.enableAntoraSupport": true
 }
