@@ -31,25 +31,28 @@ Use of {gmsh} with builtin kernel
 
 [source]
 ----
-h = 1;                     
-Point(1) = {0, 0, 0, h};   
+setFactory("Built-in"); <1>
+
+h = 1; <2>                    
+Point(1) = {0, 0, 0, h};  <3> 
 Point(2) = {10, 0, 0, h};
 Point(3) = {10, 10, 0, h};
 Point(4) = {0, 10, 0, h};
-Line(1) = {1,2};            
+Line(1) = {1,2};  <4>          
 Line(2) = {2,3};
 Line(3) = {3,4};
 Line(4) = {4,1};
-Curve Loop(1) = {1,2,3,4};   
-Plane Surface(1) = {1};     
-Physical Surface(1) = {1}; 
+Curve Loop(1) = {1,2,3,4};  <5> 
+Plane Surface(1) = {1}; <6>    
+Physical Surface(1) = {1}; <7>
 ----
-<1> Characteristic length of a mesh element
-<2> Point construction
-<3> Lines
-<4> A Boundary
-<5> A Surface
-<6> Setting a label to the Surface
+<1> Use Built-in kernel, aka Bottom-up approach
+<2> Characteristic length of a mesh element
+<3> Point construction
+<4> Lines
+<5> A Boundary
+<6> A Surface
+<7> Setting a label to the Surface
 
 * In GMSH, go to files->open (CTRL+o) and open the file, or type gmsh square.geo in a terminal (warning: this open a new instance of GMSH (which is very light by the way!)). A square should have appear in GMSH’s windows. 
 
@@ -62,59 +65,147 @@ The square can now be meshed by typing 2 on the keyboard (or maybe shift + 2) or
 
 * add parameters for GUI mode
 
+[source]
+----
+...
+h =DefineNumber[ 0.1, Name "Parameters/MeshSize" ]; <1>
+dx = DefineNumber[ 0.1, Name "Parameters/dx" ];
+       
+Point(1) = {0, 0, 0, h};  <2> 
+Point(2) = {dx, 0, 0, h};
+...
+----
+<1> define a 'MeshSize' parameter,
+<2> use 'dx' parameter in Point(2) definition
+
+For more infos on parameters, see this link:https://gitlab.onelab.info/doc/tutorials/-/wikis/ONELAB-syntax-for-Gmsh-and-GetDP[doc].
+
 * "academic" cube
 
-Perform an elevation to get a cube.
-Note the way, we use to retreive the boundaries and the volume create
+Comment out the last line in the geo file
+Perform an elevation of Surface 1 to get a cube.
+
+[source]
+----
+...
+dz = DefineNumber[ 0.1, Name "Parameters/dz" ];
+
+out[] = Extrude {0, 0, dz} {Surface{1};}; <1>
+
+Physical Surface("Top") = {1};
+Physical Surface("Bottom") = {out[0]};
+Physical Surface("Other") = {out[2], out[3], out[4], out[5]};
+Physical Volume("Cube") = {out[1]};
+----
+<1> Note how we retrieve the volume number programatically
+ by using the return value (a list) of the Extrude command. This list contains
+the "top" of the extruded surface (in out[0]), the newly created volume (in
+out[1]) and the ids of the lateral surfaces (in out[2], out[3], ...)
 
 * "academic" cube with hole
 
 [source]
 ----
-h = 1;                     
-Point(1) = {0, 0, 0, h};   
-Point(2) = {10, 0, 0, h};
-Point(3) = {10, 10, 0, h};
-Point(4) = {0, 10, 0, h};
-Line(1) = {1,2};            
-Line(2) = {2,3};
-Line(3) = {3,4};
-Line(4) = {4,1};
-Curve Loop(1) = {1,2,3,4};
+...
+r =DefineNumber[ 0.1, Name "Parameters/HoleRadius" ];
 
-Point(5) = {3, 0, 0, h/4.};   <1>
-Point(6) = {0, 3, 0, h/4.};
-Point(7) = {-3, 0, 0, h/4.};
-Point(8) = {0, -3, 0, h/4.};
-Circle() = {};
-Curve Loop(2) = {}; <2>
+Point(5) = {dx/2.-r, 0, 0, h/4.};   <1>
+Point(6) = {dx/2., dy/2.+r, 0, h/4.};
+Point(7) = {-dx/2.-r, 0, 0, h/4.};
+Point(8) = {-dx/2.-r, -dy/2.-r, 0, h/4.};
+Point(10) = {dx/2., dy/2., 0, h/4.};
+
+Circle(5) = {5,1O,6};
+...
+Curve Loop(2) = {5, 6, 7, 8}; <2>
 
 Plane Surface(1) = {1, -2}; <3> 
 ...
 ----
 <1> Create a disk
 <2> Create a Curve Loop for the hole
-<3> Create the surface: square with a hole
+<3> Create the surface: square with a hole, Note the sign before curve loop 2
 
-Perform the elevation
-Assign the Physical ids
+Exercise: 
+* Perform the elevation
+* Assign the Physical ids
 
 * "academic" cube with holes
 
+Create a function to define the hole with a radius r centered on (x0, y0, 0)
+Store the Line Loop in an array
 
-Create a function to define the hole
+[source]
+----
+Macro CHole
+    O=newp; Point(O) = {x0,y0,0,h};
+    p1=newp; Point(p1) = { x0+r,  y0, 0, h_h};
+    p2=newp; Point(p2) = { x0+0,  y0+r, -dz, h_h};
+    p3=newp; Point(p3) = { x0-r,  y0, -dz, h_h};
+    p4=newp; Point(p4) = { x0+0, y0-r, -dz, h_h};
 
-* use of python Gmsh API
+    c1=newl; Circle(c1) = {p1,O,p2};
+    c2=newl; Circle(c2) = {p2,O,p3};
+    c3=newl; Circle(c3) = {p3,O,p4};
+    c4=newl; Circle(c4) = {p4,O,p1};
 
-=== Exercises
+    loop[t]=newl; Line Loop(loop[t]) = {c1, c2, c3, c4}; t += 1;
+Return
+----
+
+Use the macro to create the geometry
+[source]
+----
+...
+nx =DefineNumber[ 1, Name "Parameters/HoleNumbersAlongOX" ];
+ny =DefineNumber[ 1, Name "Parameters/HoleNumbersAlongOY" ];
+
+t = 0; loop[] = {};
+Macro CHole
+    ...
+Return
+
+For i In {1:nx}
+    x0 = -dx/(2*nx) + (i-1) * dx/nx;
+    For j In {1:ny}
+        y0 = -dy/(2*ny) + (j-1) * dy/ny;
+        Call CHole;
+    EndFor
+EndFor
+
+bord = newl; Plane Surface(bord) = {1, -loop[]};
+...
+----
+
+Exercise: 
+* Perform the elevation
+* Assign the Physical ids
 
 == CGS approach
 
 Use of {gmsh} with OpenCascade kernel
 
+[source]
+----
+setFactory("Built-in"); <1>
+lc = DefineNumber[ 0.1, Name "Parameters/lc" ];
+dx = DefineNumber[ 0.1, Name "Parameters/dx" ];
+dy = DefineNumber[ 0.1, Name "Parameters/dy" ];
+dz = DefineNumber[ 0.1, Name "Parameters/dz" ];
+Box(1) = {0,0,0, dx,dy,dz}; <2>
+
+// get boundary??
+Physical Volume("Cube") = {1};
+----
+<1> Switch from 'Built-In' to 'OpenCASCADE' kernel
+<2> Create a rectangular box
+
 * previous examples using CSG
 
+== Use of python Gmsh API
 === Exercises
 
-=== Sofware
+== Use of Salome for more complex geometries
+
+=== Other Sofware
 === Formats
