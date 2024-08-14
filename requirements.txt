@@ -17,6 +17,7 @@ requests
 pandas
 tabulate
 nbformat>=4.2.0
+pandoc
 setuptools 
 wheel
 build
