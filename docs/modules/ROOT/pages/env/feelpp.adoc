@@ -1,0 +1,9 @@
+= Feelpp Environment
+
+Feel++ is an Open-Source C++ library which allows to solve a large range of partial differential equations using Galerkin methods, e.g. finite element method, spectral element method, discontinuous Galerkin methods or reduced basis methods.
+
+== Get {feelpp}
+
+For this course, we recommend to use {feelpp} from a container.
+See this https://docs.feelpp.org/user/latest/install/containers.html[document] for more details
+

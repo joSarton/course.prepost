@@ -1,6 +1,7 @@
 node_modules/
 build*/
 public/
+bundles/
 cache/
 *.bak
 jupyter/
@@ -45,3 +46,7 @@ auto-save-list
 tramp
 .\#*
 .venv/
+*-env/
+
+# Log files
+*.log

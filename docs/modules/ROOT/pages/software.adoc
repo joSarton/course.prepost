@@ -1,0 +1,16 @@
+= Software
+
+* CAD
+** https://gmsh.info/[{gmsh}]
+** https://www.salome-platform.org/[{salome}]
+** https://www.freecad.org/[{freecad}]
+** https://openscad.org/index.html[{openscad}]
+** https://www.cgal.org/[{cgal}]
+
+* Mesh
+** https://gmsh.info/[{gmsh}]
+** https://www.salome-platform.org/[{salome}]
+** http://www.mmgtools.org/[{mmg}]
+// ** https://ngsolve.org/[{netgen}]
+
+
