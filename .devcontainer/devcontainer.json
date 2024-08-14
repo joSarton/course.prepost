@@ -24,7 +24,13 @@
         "vscode": {
             "extensions": [
                 "asciidoctor.asciidoctor-vscode",
-                "ritwickdey.LiveServer"
+                "ritwickdey.LiveServer",
+                "ziishaned.livereload",
+                "ms-python.black-formatter",
+                "ms-python.python",
+                "adamvoss.vscode-languagetool",
+                "adamvoss.vscode-languagetool-en",
+                "adamvoss.vscode-languagetool-fr"
             ]
         }
     },

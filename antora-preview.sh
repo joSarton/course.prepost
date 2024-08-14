@@ -3,10 +3,8 @@ set +x
 
 # install feelpp stuff
 sudo apt-get install wget gpg
-# wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-wget -qO - http://apt.feelpp.org/apt.gpg | cat > feelpp.gpg
-sudo install -D -o root -g root -m 644  feelpp.gpg /etc/apt/keyrings/feelpp.gpg
-echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/feelpp.gpg] http://apt.feelpp.org/debian/bookworm bookworm latest" | sudo tee -a /etc/apt/sources.list.d/feelpp.list
+wget -qO - http://apt.feelpp.org/apt.gpg | sudo apt-key add -
+echo "deb http://apt.feelpp.org/debian/bookworm bookworm latest" | sudo tee -a /etc/apt/sources.list.d/feelpp.list
 rm -f feelpp.gpg
 sudo apt -qq update
 # sudo apt install -y
@@ -19,6 +17,12 @@ pip3 install -r requirements.txt
 
 # install utilities tools
 sudo apt install -y pandoc
+
+# install firefox for LiveServer
+sudo apt install -y firefox-esr
+
+# Get and Install Livereload extension
+
 
 # install
 # sudo chown -R vscode:vscode . # in wsl remote container

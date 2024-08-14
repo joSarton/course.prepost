@@ -1,8 +1,0 @@
-= Network-integrated pre-processing and post-processing in scientific computing 
-:stem: latexmath
-
-
-
-++++
-<iframe src="https://docs.google.com/presentation/d/1uimpFrmzMrvV8vtuEeIppB7cqBwkJz9KfCjDwtg3plg/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-++++

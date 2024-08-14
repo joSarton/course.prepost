@@ -26,19 +26,21 @@ ARG USERNAME=vscode
 ARG USER_UID=1001
 ARG USER_GID=$USER_UID
 
-RUN apt update && \
-    apt -y install curl findutils jq yq coreutils bash-completion locate nmap vim-nox
+RUN apt-get update && \
+    apt-get -y install curl findutils jq yq coreutils bash-completion locate nmap vim-nox
 
 # Install stuff for antora preview
 # test without caddy deb and guard-livereload gem
-RUN apt update && \
-    apt -y install ruby-dev ruby libnotify4 locate && \
+RUN apt-get update && \
+    apt-get -y install ruby-dev ruby libnotify4 locate && \
     gem install --no-document guard guard-shell libnotify json && \
-    apt -y remove ruby-dev && \
+    apt-get -y remove ruby-dev && \
     updatedb
 
 # Install python stuff
-RUN apt -y install python-is-python3 python3-venv python3-watchdog
+# python3-watchdog seems not be to working as guardfile
+# use python3-pyvirtualdisplay: wrapper for Xvfb,.. instead of python3-xvfbwrapper?
+RUN apt-get -y install python-is-python3 python3-venv python3-xvfbwrapper libgl1-mesa-dev
 
 # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.\
 RUN groupadd --gid $USER_GID $USERNAME && \

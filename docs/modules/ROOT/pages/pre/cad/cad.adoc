@@ -1,17 +1,17 @@
 = Computer Aided Design (CAD)
 
 Covers the creation of geometry:
+
 * 2 approaches to create geometry:
 ** Bottom-up approach: from points to surfaces and volumes,
 
-// https://youtu.be/nkuawZkiu1w
+video::dywdlaaE1U8[youtube,width="960",height="569"]
+
 ** Constructive Solid Geometry (CGS) approach: use boolean operation,
-// https://youtu.be/dywdlaaE1U8
 
-Examples are take from https://gmsh.info/screencasts/[{gmsh} screencasts.] 
+video::nkuawZkiu1w[youtube,width="960",height="569"]
 
-* Use of dedicated software
-* Main formats considered
+Examples are take from link:https://gmsh.info/screencasts/[{gmsh} screencasts.] 
 
 == Goals
 
@@ -22,12 +22,25 @@ Examples are take from https://gmsh.info/screencasts/[{gmsh} screencasts.]
 * Practise with {gmsh} and {salome}
 ** use GUI and TUI/API mode
 
+== CAD ecosystem
+
+Gives an oveview of
+
+* Software
+** Commercial: Catia, Seimens Nx, SolidWorks, ...
+** OpenSource: {freecad}, {salome}
+
+* Main formats:
+** STL
+** Brep
+** Xao
+
 
 == Bottom-up approach
 
 Use of {gmsh} with builtin kernel
 
-* Basic Usage: a square
+=== Basic Usage: a square
 
 [source]
 ----
@@ -54,14 +67,12 @@ Physical Surface(1) = {1}; <7>
 <6> A Surface
 <7> Setting a label to the Surface
 
-* In GMSH, go to files->open (CTRL+o) and open the file, or type gmsh square.geo in a terminal (warning: this open a new instance of GMSH (which is very light by the way!)). A square should have appear in GMSH’s windows. 
+To view the geometry:
 
+* In GMSH, go to files->open (CTRL+o) and open the file, or type gmsh square.geo in a terminal (warning: this open a new instance of GMSH (which is very light by the way!)). A square should have appear in GMSH’s windows. 
 * The camera can be adjusted using the mouse: rotating (left click), translating (right click) or zooming (wheel). At bottom left of GMSH’s windows, camera can be reseted using X,Y,Z and 1:1 (scale) buttons.
 
-[note]
-====
-The square can now be meshed by typing 2 on the keyboard (or maybe shift + 2) or using the menu: Mesh->2D
-====
+TIP: The square can now be meshed by typing 2 on the keyboard (or maybe shift + 2) or using the menu: Mesh->2D
 
 * add parameters for GUI mode
 
@@ -98,11 +109,15 @@ Physical Surface("Other") = {out[2], out[3], out[4], out[5]};
 Physical Volume("Cube") = {out[1]};
 ----
 <1> Note how we retrieve the volume number programatically
- by using the return value (a list) of the Extrude command. This list contains
-the "top" of the extruded surface (in out[0]), the newly created volume (in
-out[1]) and the ids of the lateral surfaces (in out[2], out[3], ...)
+ by using the return value (a list) of the Extrude command. This list contains:
 
-* "academic" cube with hole
+* the "top" of the extruded surface (in 'out[0]''), 
+* the newly created volume (in 'out[1]'') 
+* and the ids of the lateral surfaces (in 'out[2]'', 'out[3]', ...)
+
+
+
+=== "academic" cube with hole
 
 [source]
 ----
@@ -127,10 +142,11 @@ Plane Surface(1) = {1, -2}; <3>
 <3> Create the surface: square with a hole, Note the sign before curve loop 2
 
 Exercise: 
+
 * Perform the elevation
 * Assign the Physical ids
 
-* "academic" cube with holes
+=== "academic" cube with holes
 
 Create a function to define the hole with a radius r centered on (x0, y0, 0)
 Store the Line Loop in an array
@@ -178,6 +194,7 @@ bord = newl; Plane Surface(bord) = {1, -loop[]};
 ----
 
 Exercise: 
+
 * Perform the elevation
 * Assign the Physical ids
 
@@ -207,5 +224,3 @@ Physical Volume("Cube") = {1};
 
 == Use of Salome for more complex geometries
 
-=== Other Sofware
-=== Formats

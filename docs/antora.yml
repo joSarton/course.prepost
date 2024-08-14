@@ -24,11 +24,11 @@ asciidoc:
 ext:
   collector:
     - run:
-        command: ./generate-jupyter.sh docs/modules/COURSE
+        command: ./generate-jupyter.sh docs/modules/ROOT
       scan:
         dir: jupyter/
         files: '**/*.ipynb'
-        base: modules/COURSE/attachments/
+        base: modules/ROOT/attachments/
     - run:
         command: ./generate-jupyter.sh docs/modules/exos
       scan:
@@ -36,6 +36,6 @@ ext:
         files: '**/*.ipynb'
         base: modules/exos/attachments/
 nav:
-- modules/COURSE/nav.adoc
+- modules/ROOT/nav.adoc
 - modules/exos/nav.adoc
 

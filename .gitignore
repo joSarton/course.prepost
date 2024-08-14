@@ -46,3 +46,4 @@ auto-save-list
 tramp
 .\#*
 .venv/
+*-env/
