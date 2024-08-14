@@ -8,7 +8,7 @@ Christophe Trophime <https://github.com/Trophime[@Trophime]>
 Jonathan Sarton  <https://github.com/joSarton[@joSarton]>
 v2: 
 
-image:https://github.com/feelpp/course-project-dash/workflows/CI/badge.svg[CI]
+image:https://github.com/Trophime/CSMI-PrePost/workflows/CI/badge.svg[CI]
 
 This repository contains the source of CSMI Pre and PostProcessing course.
 It includes:
@@ -19,7 +19,7 @@ It includes:
 - [ ] continuous integration including tests for the {cpp} applications
 - [x] docker image generation for the course
 
-The documentation for csmi-prepost is available at link:https://trophime.github.io/CSMI-PrePost/course-project-dash/[here] and you can build on it for your project by enabling the link:https://docs.github.com/en/pages[github pages] for your repository.
+The documentation for csmi-prepost is available at link:https://trophime.github.io/CSMI-PrePost/[here] and you can build on it for your project by enabling the link:https://docs.github.com/en/pages[github pages] for your repository.
 
 == Setting up CI/CD
 
