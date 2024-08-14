@@ -34,6 +34,8 @@ The documentation for csmi-prepost is available at link:https://trophime.github.
  - To active livereload functionnality, you need to install link:https://addons.mozilla.org/en-US/firefox/addon/live-reload/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search[livereload extension] in firefox
  - Create a reload rule, for instance:
 
+ image::docs/modules/ROOT/images/reloadrule.png
+
  image:https://github.com/feelpp/course-project-dash/workflows/CI/badge.svg[CI]
 
  note: Vscode LiveReload extension is not working. It has therefore been disabled in the devcontainer.
