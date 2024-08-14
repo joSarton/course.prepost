@@ -2,6 +2,7 @@
 :cpp: C++
 :project: csmi-prepost 
 
+
 = CSMI Pre and Post Processing
 Christophe Trophime <https://github.com/Trophime[@Trophime]>
 Jonathan Sarton  <https://github.com/joSarton[@joSarton]>
@@ -34,19 +35,14 @@ The documentation for csmi-prepost is available at link:https://trophime.github.
  - To active livereload functionnality, you need to install link:https://addons.mozilla.org/en-US/firefox/addon/live-reload/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search[livereload extension] in firefox
  - Create a reload rule, for instance:
 
- image::docs/modules/ROOT/images/reloadrule.png
+image::../docs/modules/ROOT/assets/images/reloadrule.png[]
 
- image:https://github.com/feelpp/course-project-dash/workflows/CI/badge.svg[CI]
+NOTE: Vscode LiveReload extension is not working. It has therefore been disabled in the devcontainer.
 
- note: Vscode LiveReload extension is not working. It has therefore been disabled in the devcontainer.
- 
+NOTE: On the host, you can also use `firefox --private-window http://localhost:5500/' to view the web devsite.
 
+TIP: you may need to change the port. Check open ports on host with nmap.
 
- [NOTE]
- ====
- on the host, you can also use `firefox --private-window http://localhost:5500/' to view the web devsite.
- NB: you may need to change the port. Check open ports on host with nmap.
- ====
  
 == Updating the {project} version
 
