@@ -47,3 +47,6 @@ tramp
 .\#*
 .venv/
 *-env/
+
+# Log files
+*.log
