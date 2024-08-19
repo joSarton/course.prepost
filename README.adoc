@@ -2,23 +2,24 @@
 :cpp: C++
 :project: csmi-prepost 
 
+
 = CSMI Pre and Post Processing
 Christophe Trophime <https://github.com/Trophime[@Trophime]>
 Jonathan Sarton  <https://github.com/joSarton[@joSarton]>
 v2: 
 
-image:https://github.com/feelpp/course-project-dash/workflows/CI/badge.svg[CI]
+image:https://github.com/Trophime/CSMI-PrePost/workflows/CI/badge.svg[CI]
 
 This repository contains the source of CSMI Pre and PostProcessing course.
 It includes:
 
 - [x] documentation using asciidoc and antora
-- [x] {feelpp} applications in {cpp} to use {feelpp} and {feelpp} toolboxes in `src`
-- [x] python {feelpp} notebooks that can be downloaded from the documentation
-- [x] continuous integration including tests for the {cpp} applications
+- [ ] {feelpp} applications in {cpp} to use {feelpp} and {feelpp} toolboxes in `src`
+- [ ] python {feelpp} notebooks that can be downloaded from the documentation
+- [ ] continuous integration including tests for the {cpp} applications
 - [x] docker image generation for the course
 
-The documentation for csmi-prepost is available at link:https://trophime.github.io/CSMI-PrePost/course-project-dash/[here] and you can build on it for your project by enabling the link:https://docs.github.com/en/pages[github pages] for your repository.
+The documentation for csmi-prepost is available at link:https://trophime.github.io/CSMI-PrePost/[here] and you can build on it for your project by enabling the link:https://docs.github.com/en/pages[github pages] for your repository.
 
 == Setting up CI/CD
 
@@ -27,9 +28,21 @@ The documentation for csmi-prepost is available at link:https://trophime.github.
 
 == Developing docs
 
- - open the project in `vscode`
- - stats the devcontainer
- - run `scripts/startweb.sh`
+ - open the project in `vscode`,
+ - stats the devcontainer,
+ - run `./antora-preview.sh`,
+ - start Vscode Liveserver extension, this will open firefox with the website (on port 5500 in the container),
+ - To active livereload functionnality, you need to install link:https://addons.mozilla.org/en-US/firefox/addon/live-reload/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search[livereload extension] in firefox
+ - Create a reload rule, for instance:
+
+image::../docs/modules/ROOT/assets/images/reloadrule.png[]
+
+NOTE: Vscode LiveReload extension is not working. It has therefore been disabled in the devcontainer.
+
+NOTE: On the host, you can also use `firefox --private-window http://localhost:5500/' to view the web devsite.
+
+TIP: you may need to change the port. Check open ports on host with nmap.
+
  
 == Updating the {project} version
 

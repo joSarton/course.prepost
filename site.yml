@@ -1,7 +1,7 @@
 site:
-  title: Course Project Dash
+  title: PrePost Processing for Scientific Computing
   url: https://trophime.github.io/CSMI-PrePost/
-  start_page: course-project-dash::index.adoc
+  start_page: course-prepost::index.adoc
 content:
   sources:
   - url: .
