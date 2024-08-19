@@ -1,6 +1,4 @@
 {
-    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
-    "cmake.buildDirectory": "${workspaceFolder}/build-${variant:buildType}",
-    "asciidoc.antora.enableAntoraSupport": true,
-    "cmake.configureOnOpen": false
+    "liveServer.settings.root": "/public/serve",
+    "asciidoc.antora.enableAntoraSupport": true
 }

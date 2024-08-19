@@ -1,0 +1,30 @@
+= Using Container
+
+Containers are a convenient way to run applications easily on your host machine.
+In a simplified view, containers may be seen as lightweight VMs.
+
+There are many container software. The most commonly used are {docker} and {singularity}/{apptainer} in
+the field of Computionnal Science.
+
+== {docker}
+
+To install {docker}, follow the procedure on https://docs.docker.com/get-docker/[docker website] depending on your OS. 
+
+== {singularity}/{apptainer}
+
+{singularity} is a container software designed for using container in High Performance Computing (HPC) environment. {apptainer} is an open-source fork of {singularity}. 
+
+[Important]
+====
+Both software only runs on Linux platforms.
+====
+
+To install {singularity} or {apptainer}, we recommend to use the packages provided for you OS:
+
+* https://github.com/sylabs/singularity/releases[{singularity}]
+* https://github.com/apptainer/apptainer/releases[{apptainer}] 
+
+Otherwise, follow the appropriate install procedure:
+
+* https://docs.sylabs.io/guides/4.1/admin-guide/installation.html[{singularity}]
+* https://github.com/apptainer/apptainer/blob/main/INSTALL.md[{apptainer}]
