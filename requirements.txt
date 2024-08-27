@@ -10,7 +10,7 @@ gmsh
 meshio
 ipython
 ipykernel
-pyvista
+pyvista[all]
 xvfbwrapper
 pythreejs
 requests
