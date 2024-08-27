@@ -19,13 +19,22 @@ pip3 install -r requirements.txt
 sudo apt install -y pandoc
 
 # install firefox for LiveServer
-sudo apt install -y firefox-esr
-
-# Get and Install Livereload extension
-
+dist=$(lsb_release -ds | cut -d " " -f 1)
+echo "dist=${dist}xxx"
+if [ $dist == "Ubuntu" ]; then
+    sudo apt -y install software-properties-common
+    sudo add-apt-repository -y ppa:mozillateam/ppa >> /tmp/output.txt 2>&1
+    sudo apt update
+fi
+sudo apt install -y firefox-esr libpci
+if [ $dist == "Ubuntu" ]; then
+    sudo ln -sf /usr/bin/firefox-esr /usr/bin/firefox
+fi
 
 # install
 # sudo chown -R vscode:vscode . # in wsl remote container
+# if base image is not node:xxxx 
+sudo apt install -y npm
 npm install
 
 # Generate website
