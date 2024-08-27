@@ -42,7 +42,7 @@ Use of {gmsh} with builtin kernel
 
 === Basic Usage: a square
 
-[source]
+[source, gmsh]
 ----
 setFactory("Built-in"); <1>
 
@@ -76,7 +76,7 @@ TIP: The square can now be meshed by typing 2 on the keyboard (or maybe shift + 
 
 * add parameters for GUI mode
 
-[source]
+[source, gmsh]
 ----
 ...
 h =DefineNumber[ 0.1, Name "Parameters/MeshSize" ]; <1>
@@ -96,7 +96,7 @@ For more infos on parameters, see this link:https://gitlab.onelab.info/doc/tutor
 Comment out the last line in the geo file
 Perform an elevation of Surface 1 to get a cube.
 
-[source]
+[source, gmsh]
 ----
 ...
 dz = DefineNumber[ 0.1, Name "Parameters/dz" ];
@@ -119,7 +119,7 @@ Physical Volume("Cube") = {out[1]};
 
 === "academic" cube with hole
 
-[source]
+[source, gmsh]
 ----
 ...
 r =DefineNumber[ 0.1, Name "Parameters/HoleRadius" ];
@@ -151,7 +151,7 @@ Exercise:
 Create a function to define the hole with a radius r centered on (x0, y0, 0)
 Store the Line Loop in an array
 
-[source]
+[source, gmsh]
 ----
 Macro CHole
     O=newp; Point(O) = {x0,y0,0,h};
@@ -170,7 +170,7 @@ Return
 ----
 
 Use the macro to create the geometry
-[source]
+[source, gmsh]
 ----
 ...
 nx =DefineNumber[ 1, Name "Parameters/HoleNumbersAlongOX" ];
@@ -202,7 +202,7 @@ Exercise:
 
 Use of {gmsh} with OpenCascade kernel
 
-[source]
+[source, gmsh]
 ----
 setFactory("Built-in"); <1>
 lc = DefineNumber[ 0.1, Name "Parameters/lc" ];
