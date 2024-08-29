@@ -8,7 +8,7 @@ Christophe Trophime <https://github.com/Trophime[@Trophime]>
 Jonathan Sarton  <https://github.com/joSarton[@joSarton]>
 v2: 
 
-image:https://github.com/Trophime/CSMI-PrePost/workflows/DOCS/badge.svg[CI]
+image:https://github.com/Trophime/CSMI-PrePost/actions/workflows/docs.yml/badge.svg[Docs CI]
 
 This repository contains the source of CSMI Pre and PostProcessing course.
 It includes:
