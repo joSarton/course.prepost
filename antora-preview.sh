@@ -2,12 +2,14 @@
 set +x
 
 # install feelpp stuff
-sudo apt-get install wget gpg
-wget -qO - http://apt.feelpp.org/apt.gpg | sudo apt-key add -
-echo "deb http://apt.feelpp.org/debian/bookworm bookworm latest" | sudo tee -a /etc/apt/sources.list.d/feelpp.list
-rm -f feelpp.gpg
-sudo apt -qq update
-# sudo apt install -y
+if [ ! -f /etc/apt/sources.list.d/feelpp.list ]; then
+    DIST=$(lsb_release -cs)
+    sudo apt-get install wget gpg
+    wget -qO - http://apt.feelpp.org/apt.gpg | sudo apt-key add -
+    echo "deb http://apt.feelpp.org/debian/$DIST $DIST latest" | sudo tee -a /etc/apt/sources.list.d/feelpp.list
+    rm -f feelpp.gpg
+    sudo apt -qq update
+fi
 
 # install python stuff
 sudo apt install -y python-is-python3 python3-venv 
@@ -20,13 +22,13 @@ sudo apt install -y pandoc
 
 # install firefox for LiveServer
 dist=$(lsb_release -ds | cut -d " " -f 1)
-echo "dist=${dist}xxx"
+echo "Install for dist=${dist}"
 if [ $dist == "Ubuntu" ]; then
     sudo apt -y install software-properties-common
     sudo add-apt-repository -y ppa:mozillateam/ppa >> /tmp/output.txt 2>&1
     sudo apt update
 fi
-sudo apt install -y firefox-esr libpci
+sudo apt install -y firefox-esr libpci-dev
 if [ $dist == "Ubuntu" ]; then
     sudo ln -sf /usr/bin/firefox-esr /usr/bin/firefox
 fi

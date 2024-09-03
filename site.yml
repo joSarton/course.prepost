@@ -47,6 +47,8 @@ asciidoc:
     pyfeelppmor: pyFeel++ MOR
     stem: latexmath
     vtkjs: Vtkjs
+    pyvista: PyVista
+    plotly: Plot.ly
     plotly: Plot.ly
     meshgems: MeshGems
     salome: Salome
