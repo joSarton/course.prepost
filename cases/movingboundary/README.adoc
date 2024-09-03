@@ -1,0 +1,17 @@
+= The case
+
+see link:
+
+== Inspect the geometry with gmsh
+
+rewrite geo with gmsh OCC
+save as brep
+
+== Running the case
+
+```
+mpirun -np 4 feelpp_toolbox_fsi --config-file fsi.json
+```
+
+== Viewing the results
+
