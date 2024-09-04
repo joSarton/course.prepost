@@ -33,7 +33,7 @@ To test the notebook, you can either use:
 
 You can include code cells in your notebook using the `[source,python]` block macro.
 
-[source,python]
+[%dynamic,python]
 ----
 import sys, os
 print("Hello, world!")
@@ -65,7 +65,7 @@ To get interactive plot, you can use `%matplotlib ipympl` provided that `pympl` 
 
 You can check that `pyvista` package is running as expected:
 
-[source,python]
+[%dynamic,python]
 ----
 import pyvista as pv
 # uncomment the next line, if you cannot get the image
