@@ -28,7 +28,7 @@ To run the notebook in an already install jupyter
 
 You can include code cells in your notebook using the `[source,python]` block macro.
 
-[source,python]
+[%dynamic,python]
 ----
 import sys, os
 print("Hello, world!")
@@ -38,7 +38,7 @@ print("Hello, world!")
 
 You can check that `pyvista` package is running as expected:
 
-[source,python]
+[%dynamic,python]
 ----
 import pyvista as pv
 # uncomment the next line, if you don't have a nvidia graphic card
