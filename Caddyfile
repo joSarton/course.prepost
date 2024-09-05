@@ -1,7 +1,0 @@
-:2020
-file_server {
-	root /preview/public/serve
-	index index.html
-}
-header Cache-Control "no-store"
-encode zstd gzip

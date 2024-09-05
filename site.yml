@@ -47,8 +47,9 @@ asciidoc:
     pyfeelppmor: pyFeel++ MOR
     stem: latexmath
     vtkjs: Vtkjs
+    matplotlib: matplotlib
     pyvista: PyVista
-    plotly: Plot.ly
+    ensight: Ensight
     plotly: Plot.ly
     meshgems: MeshGems
     salome: Salome
@@ -57,6 +58,8 @@ asciidoc:
     occ: OpenCascade
     cgal: Cgal
     mmg3d: mmgtools
+    gmsh: Gmsh
+    mmg: MmgTools
     netgen: netgen
     tetgen: tetgen
     docker: Docker
