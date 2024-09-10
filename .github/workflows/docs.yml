@@ -31,6 +31,9 @@ jobs:
         GITHUB_OAUTH: ${{ secrets.CR_PAT_WORKFLOW }}
     - name: Install NPM dependencies
       run: npm install
+    - name: Install Feelpp dependencies
+      run: |
+          ./feelpp-install.sh
     - name: Install Python dependencies
       run: |
           python -m venv --system-site-packages .venv

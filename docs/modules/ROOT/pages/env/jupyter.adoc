@@ -11,16 +11,21 @@ You write your notebook in AsciiDoc including LaTeX math and thanks to the `:pag
 
 [NOTE]
 ====
-To run the notebook in {vscode}:
+For the doc contributors, to run the notebook in {vscode}:
 
-* create a python virtual env
-* install the required packages from 'requirements.tx'
-* start vscode within this python virtual env
 * select the kernel to use: use the previously created virtual env
 
-To run the notebook, you can also use this docker image
+For the others, you need to download the notebook and run it in a separate way.
+To test the notebook, you can either use:
 
-To run the notebook in an already install jupyter 
+* a local jupyter installation:
+** create a python virtual environment
+** install the requested packages
+** start the the notebook
+
+* or a container (eg. docker image)
+** get the container
+** run the container with mounting ...
 
 ====
 
@@ -34,19 +39,40 @@ import sys, os
 print("Hello, world!")
 ----
 
-== Mesh 
+== Plots with {matplolib}
+
+To create plots, you can do as follows:
+
+[source,python]
+----
+%matplotlib notebook
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots()             # Create a figure containing a single Axes.
+ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
+plt.show()                           # Show the figure.
+----
+
+[NOTE]
+====
+
+To get interactive plot, you can use `%matplotlib ipympl` provided that `pympl` packaged is installed. 
+
+====
+
+== Viewing Mesh with {pyvista} 
 
 You can check that `pyvista` package is running as expected:
 
 [%dynamic,python]
 ----
 import pyvista as pv
-# uncomment the next line, if you don't have a nvidia graphic card
+# uncomment the next line, if you cannot get the image
 # pv.start_xvfb()
 mesh = pv.Plane().triangulate()
 submesh = mesh.subdivide(2, 'linear')
 submesh.plot(show_edges=True)
-
 ----
 
 == {feelpp} Code cells
@@ -57,6 +83,9 @@ You can include {feelpp} code cells in your notebook using the `[source,python]`
 ----
 import feelpp.core as fppc
 app = fppc.Environment(["myapp"],config=fppc.globalRepository("myapp"))
+
+import os
+print(f'pwd: {os.getcwd()}')
 
 geo=fppc.download( "github:{repo:feelpp,path:feelpp/quickstart/laplacian/cases/feelpp2d/feelpp2d.geo}", worldComm=app.worldCommPtr() )[0]
 print("geo file: {}".format(geo))
@@ -76,7 +105,14 @@ You can then visualize the result using the `pyvista` package as follows:
 ----
 import pyvista as pv
 # pv.start_xvfb()
-reader = pv.get_reader("exports/ensightgold/Exporter/Exporter.case")
+reader = pv.get_reader("/home/feelpp/feelppdb/myapp/np_1/exports/ensightgold/Exporter/Exporter.case")
 mesh = reader.read()
 mesh.plot(scalars="f",show_edges=True)
 ----
+
+[NOTE]
+=====
+
+You may need to change the path to the ensight gold output file depending on your setup.
+
+=====

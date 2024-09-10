@@ -1,4 +1,6 @@
 {
-    "liveServer.settings.root": "/public/serve",
-    "asciidoc.antora.enableAntoraSupport": true
+    "liveServer.settings.root": "/public",
+    "asciidoc.antora.enableAntoraSupport": true,
+    "files.autoSave": "off",
+    "files.autoSaveDelay": 500
 }
