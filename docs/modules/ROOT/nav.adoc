@@ -12,6 +12,7 @@
 ** xref:env/salome.adoc[{salome}]
 ** xref:env/feelpp.adoc[{feelpp}]
 ** xref:env/container.adoc[Containers]
+** xref:env/pyvista.adoc[{pyvista}]
 ** xref:env/jupyter.adoc[Jupyter Notebook]
 * References
 ** xref:software.adoc[]

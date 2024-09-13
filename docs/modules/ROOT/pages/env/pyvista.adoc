@@ -1,0 +1,53 @@
+= {pyvista} env
+:stem: latexmath
+:page-jupyter: true
+
+== Basic operations
+
+You can check that `pyvista` package is running as expected:
+
+[%dynamic%raw%open,python]
+----
+import pyvista as pv
+print(pv.report())
+----
+
+Next, if .. 
+
+////
+[%dynamic%raw%open,python]
+----
+import pyvista as pv
+# uncomment the next line, if you cannot get the image
+# pv.start_xvfb()
+# pv.set_jupyter_backend('static')
+pl = pv.Plotter()
+print(pl.render_window.ReportCapabilities())
+----
+////
+
+Here is a small example to plot a sphere:
+
+[source,python]
+----
+sphere = pv.Sphere()
+
+# short example
+sphere.plot(jupyter_backend='server')
+
+# long example
+plotter = pv.Plotter(notebook=True)
+plotter.add_mesh(sphere)
+plotter.show(jupyter_backend='trame')
+----
+
+== Viewing Mesh with {pyvista} 
+
+[source,python]
+----
+pv.set_jupyter_backend('client')
+mesh = pv.Plane().triangulate()
+submesh = mesh.subdivide(2, 'linear')
+submesh.plot(show_edges=True)
+----
+
