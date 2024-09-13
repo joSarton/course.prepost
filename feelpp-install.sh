@@ -1,13 +1,15 @@
 #!/bin/bash
 set +x
 
+sudo apt -y install whoami
 echo $(whoami)
 
 # install feelpp stuff
 if [ ! -f /etc/apt/sources.list.d/feelpp.list ]; then
     echo "Installing feelpp packages"
+    sudo apt-get -y install lsb-release
     DIST=$(lsb_release -cs)
-    sudo apt-get install wget gpg
+    sudo apt-get -y install wget gpg
     sudo wget -qO - http://apt.feelpp.org/apt.gpg | sudo apt-key add -
     echo "deb http://apt.feelpp.org/debian/$DIST $DIST latest" | sudo tee -a /etc/apt/sources.list.d/feelpp.list
     rm -f feelpp.gpg
