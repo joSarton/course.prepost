@@ -33,7 +33,7 @@ jobs:
       run: npm install
     - name: Install Feelpp dependencies
       run: |
-	  ./feelpp-install.sh
+          ./feelpp-install.sh
     - name: Install Python dependencies
       run: |
           python -m venv --system-site-packages .venv
