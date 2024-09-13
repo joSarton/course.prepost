@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 
-sudo apt -y install whoami
+sudo apt -y install core-utils
 echo $(whoami)
 
 # install feelpp stuff
