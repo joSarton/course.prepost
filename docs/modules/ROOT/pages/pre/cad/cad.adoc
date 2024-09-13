@@ -5,11 +5,11 @@ Covers the creation of geometry:
 * 2 approaches to create geometry:
 ** Bottom-up approach: from points to surfaces and volumes,
 
-video::dywdlaaE1U8[youtube,width="960",height="569"]
+video::nkuawZkiu1w[youtube,width="960",height="569"]
 
 ** Constructive Solid Geometry (CGS) approach: use boolean operation,
 
-video::nkuawZkiu1w[youtube,width="960",height="569"]
+video::dywdlaaE1U8[youtube,width="960",height="569"]
 
 Examples are take from link:https://gmsh.info/screencasts/[{gmsh} screencasts.] 
 
