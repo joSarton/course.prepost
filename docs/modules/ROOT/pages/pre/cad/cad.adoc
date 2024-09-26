@@ -32,8 +32,8 @@ Gives an oveview of
 
 * Main formats:
 ** STL
-** Brep
-** Xao
+** STEP
+** Brep (Xao, aka Brep + xml)
 
 
 == Bottom-up approach
