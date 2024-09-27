@@ -40,41 +40,6 @@ import sys, os
 print("Hello, world!")
 ----
 
-== Plots with {matplolib}
-
-To create plots, you can do as follows:
-
-[source,python]
-----
-%matplotlib notebook
-import matplotlib.pyplot as plt
-import numpy as np
-
-fig, ax = plt.subplots()             # Create a figure containing a single Axes.
-ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
-plt.show()                           # Show the figure.
-----
-
-[NOTE]
-====
-
-To get interactive plot, you can use `%matplotlib ipympl` provided that `pympl` packaged is installed. 
-
-====
-
-== Viewing Mesh with {pyvista} 
-
-You can check that `pyvista` package is running as expected:
-
-[%dynamic,python]
-----
-import pyvista as pv
-# uncomment the next line, if you cannot get the image
-# pv.start_xvfb()
-mesh = pv.Plane().triangulate()
-submesh = mesh.subdivide(2, 'linear')
-submesh.plot(show_edges=True)
-----
 
 == {feelpp} Code cells
 
@@ -104,11 +69,30 @@ You can then visualize the result using the `pyvista` package as follows:
 
 [source,python]
 ----
+import os
 import pyvista as pv
 # pv.start_xvfb()
+
+# hack for vtk 9.3
+filename = "/home/feelpp/feelppdb/myapp/np_1/exports/ensightgold/Exporter/Exporter.case"
+new_filename = "/home/feelpp/feelppdb/myapp/np_1/exports/ensightgold/Exporter/Exporter.case.tmp"
+
+with new_filename, "w" as out:
+    with open(filename, "r") as in:
+        Lines = in.readlines()
+        for line in Lines:
+            out.write(line.replace('change_coord_only',''))
+
+os.rename(filename, 'f{filename}.orig')
+os.rename(new_filename, filename)
+
+# load "corrected" case
 reader = pv.get_reader("/home/feelpp/feelppdb/myapp/np_1/exports/ensightgold/Exporter/Exporter.case")
 mesh = reader.read()
 mesh.plot(scalars="f",show_edges=True)
+
+# restore original case
+os.rename('f{filename}.orig', filename)
 ----
 
 [NOTE]

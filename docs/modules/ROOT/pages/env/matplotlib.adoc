@@ -1,0 +1,28 @@
+= {matplotlib} env
+
+== Plots with {matplotlib}
+
+[IMPORTANT] 
+====
+dynamic raw open Not working
+====
+
+To create plots, you can do as follows:
+
+[source,python]
+----
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Scatter points
+fig, ax = plt.subplots()
+np.random.seed(0)
+x, y = np.random.normal(size=(2, 200))
+color, size = np.random.random((2, 200))
+
+ax.scatter(x, y, c=color, s=500 * size, alpha=0.3)
+ax.grid(color='lightgray', alpha=0.7)
+
+import mpld3
+mpld3.display(fig)
+----

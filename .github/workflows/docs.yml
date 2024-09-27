@@ -36,9 +36,12 @@ jobs:
           ./feelpp-install.sh
     - name: Install Python dependencies
       run: |
+          apt -y install libosmesa
           python -m venv --system-site-packages .venv
           source .venv/bin/activate
-          pip install -r requirements.txt        
+          pip install -r requirements.txt  
+          pip uninstall vtk -y
+          pip install --no-cache-dir --extra-index-url https://wheels.vtk.org vtk-osmesa      
     - name: Build Antora Site
       run: |
           source .venv/bin/activate

@@ -1,0 +1,19 @@
+= {plotly} Env
+:page-jupyter: true
+:page-plotly: true
+
+== Plots with {plotly}
+
+You need to add the `:page-plotly: true` attribute to the adoc page
+
+[%dynamic%open,python]
+----
+import plotly.graph_objects as go
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+fig = go.Figure(data=go.Scatter(x=x, y=y, mode='lines'))
+fig.show()
+----

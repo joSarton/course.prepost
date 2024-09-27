@@ -9,7 +9,7 @@ You can check that `pyvista` package is running as expected:
 [%dynamic%raw%open,python]
 ----
 import pyvista as pv
-print(pv.report())
+print(pv.Report())
 ----
 
 Next, if .. 

@@ -2,7 +2,7 @@
 # try to use opengl noble ??
 # if so, feelpp need to be install and USERNAME defined if not exist: check with getent ??
 FROM ubuntu:24.04
-i#FROM ghcr.io/feelpp/feelpp:v0.111.0-preview.10-noble
+#FROM ghcr.io/feelpp/feelpp:v0.111.0-preview.10-noble
 
 # Set one or more individual labels
 LABEL feelppdoc.lncmi.version="0.0.1-beta"
@@ -34,7 +34,9 @@ RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get -y install apt-file && \
     apt-file update && \
-    apt-get -y install openssh-client curl findutils jq yq coreutils bash-completion locate nmap vim-nox gpg
+    apt-get -y install git openssh-client wget curl findutils jq yq coreutils && \
+    apt-get -y install bash-completion coreutils tree locate nmap vim-nox gpg shellcheck && \
+    apt-get -y install mesa-utils
 
 # Install stuff for antora preview
 # test without caddy deb and guard-livereload gem
@@ -48,7 +50,7 @@ RUN apt-get update && \
 # Install python stuff
 # python3-watchdog seems not be to working as guardfile
 # use python3-pyvirtualdisplay: wrapper for Xvfb,.. instead of python3-xvfbwrapper?
-RUN apt-get -y install python-is-python3 python3-venv python3-xvfbwrapper libgl1-mesa-dev
+RUN apt-get -y install python-is-python3 python3-venv python3-xvfbwrapper libgl1-mesa-dev libosmesa6
 
 # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.\
 RUN groupadd --gid $USER_GID $USERNAME && \
