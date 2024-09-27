@@ -4,37 +4,27 @@
 
 == Basic operations
 
-You can check that `pyvista` package is running as expected:
+You can check `pyvista` configuration:
 
-[%dynamic%raw%open,python]
+[%dynamic%open,python]
 ----
 import pyvista as pv
 print(pv.Report())
 ----
 
-Next, if .. 
-
-////
-[%dynamic%raw%open,python]
-----
-import pyvista as pv
-# uncomment the next line, if you cannot get the image
-# pv.start_xvfb()
-# pv.set_jupyter_backend('static')
-pl = pv.Plotter()
-print(pl.render_window.ReportCapabilities())
-----
-////
-
 Here is a small example to plot a sphere:
 
-[source,python]
+[%dynamic%raw%open,python]
 ----
 sphere = pv.Sphere()
 
 # short example
 sphere.plot(jupyter_backend='server')
+----
 
+
+[source,python]
+----
 # long example
 plotter = pv.Plotter(notebook=True)
 plotter.add_mesh(sphere)
@@ -48,6 +38,6 @@ plotter.show(jupyter_backend='trame')
 pv.set_jupyter_backend('client')
 mesh = pv.Plane().triangulate()
 submesh = mesh.subdivide(2, 'linear')
-submesh.plot(show_edges=True)
+submesh.plot(show_edges=True, cpos='xy', interactive=False)
 ----
 
