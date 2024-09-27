@@ -1,7 +1,12 @@
 #!/bin/bash
 set +x
 
+sudo apt -y install core-utils
 echo $(whoami)
+
+sudo apt -y install clsb-release
+platform=$(lsb_release -ds | cut -d " " -f 1 | tr '[:upper:]' '[:lower:]')
+echo "Install for platform=${platform}"
 
 # install feelpp stuff
 if [ ! -f /etc/apt/sources.list.d/feelpp.list ]; then
