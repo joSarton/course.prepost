@@ -32,7 +32,7 @@ To test the notebook, you can either use:
 == Code cells
 
 You can include code cells in your notebook using the `[source,python]` block macro.
-To run and view the result use `[%dynamic%open,python]`block macro.
+To run and view the result use `[%dynamic%open,python]` block macro.
 
 [%dynamic%open,python]
 ----
