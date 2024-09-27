@@ -36,7 +36,7 @@ jobs:
           ./feelpp-install.sh
     - name: Install Python dependencies
       run: |
-          apt -y install libosmesa
+          sudo apt -y install libosmesa-dev
           python -m venv --system-site-packages .venv
           source .venv/bin/activate
           pip install -r requirements.txt  
