@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 
-sudo apt -y install core-utils
+sudo apt -y install coreutils
 echo $(whoami)
 
 sudo apt -y install clsb-release
