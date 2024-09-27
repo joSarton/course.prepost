@@ -34,10 +34,46 @@ c:\>C:\Python35\python -m pip install gmsh
 ----
 ====
 
+We recommend to edit {gmsh} `geo` files with {vscode}.
+To get syntax highlighting for these files, install https://marketplace.visualstudio.com/items?itemName=Bertrand-Thierry.vscode-gmsh [vscode-gmsh extension].
+
+== Camera
+
+with a mouse:
+
+[cols="1,1"]
+|===
+| Operation	| Result 
+
+| left click | Rotation 
+
+| right click | Translation  
+
+| wheel	| Zoom 
+|===
+
+
+with a trackpad:
+
+[cols="1,1"]
+|===
+| Operation	  | Result 
+
+| left click  |	Rotation 
+
+| right click |	Translation 
+
+| multi-finger	      | Zoom 
+|===
+
+[NOTE]
+====
+Scrolling on trackpad may require some additional settings to work properly.
+See your trackpad configuration.
+====
 
 == References
 
-
 * https://gmsh.info/#Documentation[Official {gmsh} documentation]
 * Python API: https://gmsh.info/doc/texinfo/gmsh.html#Gmsh-application-programming-interface[documentation] and https://gitlab.onelab.info/gmsh/gmsh/-/tree/master/tutorials?ref_type=heads[examples]
-* https://bthierry.pages.math.cnrs.fr/tutorial/gmsh/[A Tutorial] from B. Thierry 
+* https://bthierry.pages.math.cnrs.fr/tutorial/gmsh/[A Tutorial] from B. Thierry. 

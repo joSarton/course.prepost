@@ -2,6 +2,7 @@ scipy
 numpy
 sympy
 matplotlib
+mpld3
 ipympl
 plotly
 dash

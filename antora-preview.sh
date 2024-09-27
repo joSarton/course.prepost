@@ -5,14 +5,17 @@ set +x
 ./feelpp-install.sh
 
 # install python stuff
-sudo apt install -y python-is-python3 python3-venv 
+sudo apt install -y python-is-python3 python3-venv libosmesa6
 if [ ! -d .venv ]; then
   python3 -m venv --system-site-packages .venv
   source .venv/bin/activate
   pip3 install -r requirements.txt
-else
-  source .venv/bin/activate
+  
+  # pip3 uninstall vtk -y
+  # pip3 install --no-cache-dir --extra-index-url https://wheels.vtk.org vtk-osmesa
 fi
+
+source .venv/bin/activate
 
 # install utilities tools
 sudo apt install -y pandoc
@@ -20,7 +23,7 @@ sudo apt install -y pandoc
 # install firefox for LiveServer
 dist=$(lsb_release -ds | cut -d " " -f 1)
 echo "Install for dist=${dist}"
-if [ $dist == "Ubuntu" ]; then
+if [ "$dist" == "Ubuntu" ]; then
     sudo apt -y install software-properties-common
     sudo add-apt-repository -y ppa:mozillateam/ppa >> /tmp/output.txt 2>&1
     sudo apt update
@@ -51,3 +54,6 @@ echo ""
 # signalListener .. # from antora-preview but this seems buggy
 guard -p --no-interactions -w docs public
 # watchmedo auto-restart -d ./docs/ -p '*.adoc' --recursive `./antora-run.sh`
+
+# properly quit virtual env
+deactive
