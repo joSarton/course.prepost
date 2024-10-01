@@ -1,6 +1,6 @@
 site:
   title: PrePost Processing for Scientific Computing
-  url: https://trophime.github.io/CSMI-PrePost/
+  url: https://trophime.github.io/course.prepost/
   start_page: course-prepost::index.adoc
 content:
   sources:
