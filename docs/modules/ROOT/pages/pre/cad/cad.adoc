@@ -39,7 +39,7 @@ Gives an oveview of
 == Bottom-up approach
 
 Use of {gmsh} with builtin kernel
-image::orientaion.png[fallback=oreintation.png]
+image::orientation.png[fallback=orientation.png]
 
 === Basic Usage: a square
 

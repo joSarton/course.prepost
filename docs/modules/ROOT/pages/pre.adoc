@@ -5,7 +5,7 @@ Covers:
 * Creating/Loading a solid model of the geometry,
 * Generating a mesh
 
-[source,mermaid]
+[mermaid]
 ....
 graph TD
       A(Geometry <img src='/img/helix-cad.png' width='80' height='80' />) -->|Repairing/Defeaturing| B(Mesh)

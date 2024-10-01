@@ -4,7 +4,7 @@ set +x
 sudo apt -y install coreutils
 echo $(whoami)
 
-sudo apt -y install clsb-release
+sudo apt -y install lsb-release
 platform=$(lsb_release -ds | cut -d " " -f 1 | tr '[:upper:]' '[:lower:]')
 echo "Install for platform=${platform}"
 
