@@ -12,7 +12,7 @@
 ** xref:env/salome.adoc[{salome}]
 ** xref:env/feelpp.adoc[{feelpp}]
 ** xref:env/container.adoc[Containers]
-** xref:env/plotly.adoc[{gmsh}]
+** xref:env/plotly.adoc[{plotly}]
 ** xref:env/pyvista.adoc[{pyvista}]
 ** xref:env/jupyter.adoc[Jupyter Notebook]
 * References
