@@ -39,6 +39,8 @@ Gives an oveview of
 == Bottom-up approach
 
 Use of {gmsh} with builtin kernel
+:imagesdir: images
+image::orientaion.png[fallback=oreintation.png]
 
 === Basic Usage: a square
 
@@ -69,7 +71,7 @@ Physical Surface(1) = {1}; <7>
 
 To view the geometry:
 
-* In GMSH, go to `files->open (CTRL+o)`` and open the file, or type gmsh square.geo in a terminal (warning: this open a new instance of GMSH (which is very light by the way!)). A square should have appear in GMSH’s windows. 
+* In GMSH, go to `files->open (CTRL+o)` and open the file, or type gmsh square.geo in a terminal (warning: this open a new instance of GMSH (which is very light by the way!)). A square should have appear in GMSH’s windows. 
 * The camera can be adjusted using the mouse: rotating (left click), translating (right click) or zooming (wheel). At bottom left of GMSH’s windows, camera can be reseted using X,Y,Z and 1:1 (scale) buttons.
 
 TIP: The square can now be meshed by typing 2 on the keyboard (or maybe shift + 2) or using the menu: Mesh->2D
