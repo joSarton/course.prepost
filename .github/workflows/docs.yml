@@ -42,6 +42,43 @@ jobs:
           pip install -r requirements.txt  
           pip uninstall vtk -y
           pip install --no-cache-dir --extra-index-url https://wheels.vtk.org vtk-osmesa      
+    - name: Install requirements for headless display
+      run: |
+        sudo apt-get install -y \
+          libglx-mesa0 \
+          libgl1 \
+          xvfb \
+          x11-xserver-utils
+    - name: Install Linux Qt dependencies
+      run: |
+        sudo apt-get install -y \
+          libdbus-1-3 \
+          libegl1 \
+          libopengl0 \
+          libosmesa6 \
+          libxcb-cursor0 \
+          libxcb-icccm4 \
+          libxcb-image0 \
+          libxcb-keysyms1 \
+          libxcb-randr0 \
+          libxcb-render-util0 \
+          libxcb-shape0 \
+          libxcb-xfixes0 \
+          libxcb-xinerama0 \
+          libxcb-xinput0 \
+          libxkbcommon-x11-0 \
+          mesa-utils \
+          x11-utils
+    - name: Configure headless display on Linux
+      run: |
+        export DISPLAY=:99.0
+        echo "DISPLAY=:99.0" >> $GITHUB_ENV
+        Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+        sleep 3
+    - name: Configure for PyVista
+      run: |
+        echo "PYVISTA_OFF_SCREEN=true" >> $GITHUB_ENV
+	echo "PYVISTA_TRAME_SERVER_PROXY_PREFIX='/proxy/'" >> $GITHUB_ENV
     - name: Build Antora Site
       run: |
           source .venv/bin/activate
