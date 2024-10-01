@@ -19,7 +19,7 @@ Here is a small example to plot a sphere:
 sphere = pv.Sphere()
 
 # short example
-sphere.plot(jupyter_backend='server')
+sphere.plot(jupyter_backend='client')
 ----
 
 
