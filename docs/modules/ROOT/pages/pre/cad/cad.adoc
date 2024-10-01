@@ -39,7 +39,6 @@ Gives an oveview of
 == Bottom-up approach
 
 Use of {gmsh} with builtin kernel
-:imagesdir: images
 image::orientaion.png[fallback=oreintation.png]
 
 === Basic Usage: a square
