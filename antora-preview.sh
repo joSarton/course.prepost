@@ -11,8 +11,8 @@ if [ ! -d .venv ]; then
   source .venv/bin/activate
   pip3 install -r requirements.txt
   
-  # pip3 uninstall vtk -y
-  # pip3 install --no-cache-dir --extra-index-url https://wheels.vtk.org vtk-osmesa
+  pip3 uninstall vtk -y
+  pip3 install --no-cache-dir --extra-index-url https://wheels.vtk.org vtk-osmesa
 fi
 
 source .venv/bin/activate

@@ -9,6 +9,7 @@ You can check `pyvista` configuration:
 [%dynamic%open,python]
 ----
 import pyvista as pv
+pv.start_xvfb()
 print(pv.Report())
 ----
 
