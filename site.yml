@@ -21,6 +21,8 @@ antora:
   extensions:
   - '@antora/collector-extension'
 asciidoc:
+  extensions:
+  - '@feelpp/asciidoctor-extensions'
   attributes:
     uri-github: https://github.com/
     uri-org-feelpp: https://github.com/feelpp/
@@ -76,5 +78,3 @@ asciidoc:
     vscode: VScode
     girder: Girder
     plantuml-server-url: http://www.plantuml.com/plantuml  
-  extensions:
-  - '@feelpp/asciidoctor-extensions'

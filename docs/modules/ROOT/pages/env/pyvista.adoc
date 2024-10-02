@@ -10,7 +10,7 @@ You can check `pyvista` configuration:
 ----
 import pyvista as pv
 pv.start_xvfb()
-print(pv.Report())
+pv.Report()
 ----
 
 Here is a small example to plot a sphere:
