@@ -8,8 +8,8 @@ Covers:
 [mermaid]
 ....
 graph TD
-      A(Geometry <img src='/_imgages/helix-cad.png' width='80' height='80' />) -->|Repairing/Defeaturing| B(Mesh)
-      B -->|Solve| C(PostProcessing <img src='/_imgages/helix-post.png'  width='80' height='80' />)
+      A(Geometry <img src='/_images/helix-cad.png' width='80' height='80' />) -->|Repairing/Defeaturing| B(Mesh)
+      B -->|Solve| C(PostProcessing <img src='/_images/helix-post.png'  width='80' height='80' />)
       C -->|Adapt/Move| B
 ....
 
